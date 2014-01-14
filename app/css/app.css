@@ -42,3 +42,8 @@ body {
     background-color: #f00;
     
 }
+.selectedRow {
+    background-color: #000;
+    color: #fff;
+    
+}

@@ -10,7 +10,9 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/recipeBuilderTable.html', controller: 'RecipeBuilderCtrl'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.when('/buildRecipe', {templateUrl: 'partials/recipeBuilderTable.html', controller: 'RecipeBuilderCtrl'});
+  $routeProvider.when('/helpContent', {templateUrl: 'partials/helpContent.html', controller: ''});
+  $routeProvider.when('/browseRecipes', {templateUrl: 'partials/browseRecipes.html', controller: ''});
+  $routeProvider.when('/calculateRecipe', {templateUrl: 'partials/calculateRecipe.html', controller: ''});
+  $routeProvider.otherwise({redirectTo: '/buildRecipe'});
 }]);

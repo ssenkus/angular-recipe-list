@@ -2,11 +2,9 @@
     <input class="form-control" ng-model="recipeItem" />{{recipeItem}}
     <select ng-init="" ng-model="searchBy" ng-options="item.pinyin for item in recipeItems"></select>
     <pre>{{searchBy | json}}</pre>
-    <select ng-init="" ng-model="searchCat" ng-options="key as value for (key, value) in recipeItems[0]"></select>
-    <pre>{{searchCat | json}}</pre>
     <select ng-init="" ng-model="a" ng-options="key for (key, value) in recipeItems[0]"></select>
     <pre>{{a | json}}</pre>
-    <select ng-init="" ng-model="b" ng-options="value for (key, value) in recipeItems[0]"></select>
+    <select ng-init="" ng-model="b" ng-options="value.common_name for (key, value) in recipeItems"></select>
     <pre>{{b | json}}</pre>
     <hr />
     <table class="table">
@@ -20,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in recipeItems | filter:recipeItem">
+            <tr ng-click="selectItem(item)" ng-repeat="item in recipeItems | filter:recipeItem">
                 <td>{{item.id}}</td>
                 <td>{{item.pinyin}}</td>
                 <td>{{item.common_name}}</td>
