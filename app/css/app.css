@@ -1,4 +1,9 @@
 /* app css stylesheet */
+body {
+    background-color: #fafafa;
+    
+}
+
 
 .menu {
   list-style: none;
@@ -27,4 +32,13 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+.container {
+    padding-top: 10px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: #f00;
+    
 }

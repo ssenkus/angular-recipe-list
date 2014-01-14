@@ -9,40 +9,17 @@
     </head>
     <body>
         <div class="container">
-            <ul class="menu">
-                <li><a href="#/view1">view1</a></li>
-                <li><a href="#/view2">view2</a></li>
+            
+            <h1>Recipe Builder</h1>
+            <ul class="nav nav-tabs">
+                <li><a class="btn btn-primary" href="#/view1">Add To Recipe</a></li>
+                <li><a class="btn btn-warning" href="#/view2">Help</a></li>
+                <li><a class="btn btn-success"href="#/view3">Calculate Total</a></li>
             </ul>
-            <div ng-controller="RecipeBuilderCtrl">
-                <input ng-model="recipeItem" />{{recipeItem}}
-                <hr />
-                <table class="table">
-                    <thead>
-                    <th>ID</th>
-                    <th>Pinyin</th>
-                    <th>Common Name</th>
-                    <th>Concentration</th>
-                    <th>Cost Per Gram</th>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="item in recipeItems">
-                            <td>{{item.id}}</td>
-                            <td>{{item.pinyin}}</td>
-                            <td> {{item.common_name}}</td>
-                            <td> {{item.concentration}}</td>
-                            <td> {{item.costPerGram}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
+            
             <div ng-view></div>
 
-            <div>Angular seed app: v<span app-version></span></div>
-
-            <!-- In production use:
-            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-            -->
+            <!-- In production use: <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>         -->
         </div>
         <script src="lib/angular/angular.js"></script>
         <script src="lib/angular/angular-route.js"></script>
