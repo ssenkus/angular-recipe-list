@@ -1,31 +1,59 @@
 <div ng-controller="RecipeBuilderCtrl">
-    <input class="form-control" ng-model="recipeItem" />{{recipeItem}}
-    <select ng-init="" ng-model="searchBy" ng-options="item.pinyin for item in recipeItems"></select>
-    <pre>{{searchBy | json}}</pre>
-    <select ng-init="" ng-model="a" ng-options="key for (key, value) in recipeItems[0]"></select>
-    <pre>{{a | json}}</pre>
-    <select ng-init="" ng-model="b" ng-options="value.common_name for (key, value) in recipeItems"></select>
-    <pre>{{b | json}}</pre>
+    <div class="row" style="margin: 0 10px;">
+        <div class="form-group col-md-4">
+            <form class="form">
+                <label>Search: </label>
+                <input class="form-control" ng-model="recipeItem" />
+                <p>{{recipeItem}}</p>
+            </form>
+        </div>
+    </div>
     <hr />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Pinyin</th>
-                <th>Common Name</th>
-                <th>Concentration</th>
-                <th>Cost Per Gram</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-click="selectItem(item)" ng-repeat="item in recipeItems | filter:recipeItem">
-                <td>{{item.id}}</td>
-                <td>{{item.pinyin}}</td>
-                <td>{{item.common_name}}</td>
-                <td>{{item.concentration}}</td>
-                <td>{{item.costPerGram}}</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <div class="row">
+        <div class="col-lg-5" style="margin: 0 10px;">
+            <h3>Ingredients</h3>
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead >
+                    <tr style="font-size: 11px!important;">
+                        <th>ID</th>
+                        <th>Pinyin</th>
+                        <th>Common Name</th>
+                        <th>Concentration</th>
+                        <th>Cost Per Gram</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="font-size: 10px!important;" ng-click="selectItem(item)" ng-repeat="item in recipeItems | filter:recipeItem">
+                        <td>{{item.id}}</td>
+                        <td>{{item.pinyin}}</td>
+                        <td>{{item.common_name}}</td>
+                        <td>{{item.concentration}}</td>
+                        <td>{{item.costPerGram}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
+        <div class="col-lg-5" style="margin: 0 10px;">
+            <h3>Selected Recipe Ingredients</h3>
+            <table class="table table-bordered table-condensed table-hover table-striped">
+                <thead >
+                    <tr style="font-size: 11px!important;">
+                        <th>ID</th>
+                        <th>Pinyin</th>
+                        <th>Common Name</th>
+                        <th>Concentration</th>
+                        <th>Cost Per Gram</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="font-size: 10px!important;" ng-click="selectItem(item)" ng-repeat="item in selectedItems track by $index | filter:recipeItem">
+                        <td>{{item.id}}</td>
+                        <td>{{item.pinyin}}</td>
+                        <td>{{item.common_name}}</td>
+                        <td>{{item.concentration}}</td>
+                        <td>{{item.costPerGram}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    </div>
 </div>
